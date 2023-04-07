@@ -4,14 +4,16 @@ import { useParams } from 'react-router-dom'
 import { FaCodepen, FaStore, FaUserFriends, FaUsers } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import Spinner from '../components/layout/Spinner'
+import RepoList from '../components/repos/RepoList'
 
 function User() {
     const params = useParams()
-    const { user, getUser, loading } = useContext(githubContext)
+    const { user, getUser, loading, getUserRepos, repos } = useContext(githubContext)
     const { name, type, avatar_url, location, bio, blog, twitter_username, login, html_url, followers, following, public_repos, public_gists, hireable } = user;
 
     useEffect(() => {
         getUser(params.login);
+        getUserRepos(params.login);
     }, [])
 
     if (loading) return <Spinner />
@@ -56,7 +58,7 @@ function User() {
                             {location && (
                                 <div className="stat">
                                     <div className="stat-title text-md">Location</div>
-                                    <div className="stat-value">{ }</div>
+                                    <div className="stat-title text-md">{location}</div>
                                 </div>
                             )}
                             {blog && (
@@ -112,6 +114,7 @@ function User() {
                         <div className="stat-value pr-5 text-3xl md:text-4xl">{public_gists}</div>
                     </div>
                 </div>
+                <RepoList repos={repos} />
             </div>
         </>
     )
