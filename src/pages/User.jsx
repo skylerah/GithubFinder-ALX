@@ -14,6 +14,7 @@ function User() {
     useEffect(() => {
         getUser(params.login);
         getUserRepos(params.login);
+        // eslint-disable-next-line
     }, [])
 
     if (loading) return <Spinner />
@@ -23,15 +24,15 @@ function User() {
                 <div className="mb-4">
                     <Link to="/" className="btn btn-ghost">Back to search</Link>
                 </div>
-                <div className="grid grid-cols1 xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-3 mb-8 md:gap-8">
-                    <div className="custom-card-image mb-6 md:mb-0">
-                        <div className="rounded-lg shadow-xl card image-full">
+                <div className='grid grid-cols-1 xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-3 mb-8 md:gap-8'>
+                    <div className='custom-card-image mb-6 md:mb-0'>
+                        <div className='rounded-lg shadow-xl card image-full'>
                             <figure>
-                                <img src={avatar_url} alt='no pic' />
+                                <img src={avatar_url} alt='' />
                             </figure>
-                            <div className="card-body justify-end">
-                                <h2 className="card-title mb-0">{name} </h2>
-                                <p>{login}</p>
+                            <div className='card-body justify-end'>
+                                <h2 className='card-title mb-0'>{name}</h2>
+                                <p className='flex-grow-0'>{login}</p>
                             </div>
                         </div>
                     </div>
