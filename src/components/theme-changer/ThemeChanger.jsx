@@ -16,7 +16,7 @@ function ThemeChanger() {
                 Theme</label>
             <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
                 {themeValues.map((theme, index) => (
-                    <button key={index} class="outline-base-content overflow-hidden rounded-lg text-left"
+                    <button key={index} class="outline-base-content overflow-hidden rounded-lg text-left my-1"
                         data-set-theme={theme} data-act-class="[&amp;_svg]:visible">
                         <div data-theme={theme} class="bg-base-100 text-base-content w-full cursor-pointer font-sans"><div class="grid grid-cols-5 grid-rows-3"><div class="col-span-5 row-span-3 row-start-1 flex gap-2 py-3 px-4 items-center">
                             <div class="flex-grow text-sm font-bold">{theme}</div>
